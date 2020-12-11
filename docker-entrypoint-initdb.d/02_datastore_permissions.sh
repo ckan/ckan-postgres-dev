@@ -3,9 +3,14 @@
 set -e
 
 # Get the SQL statements template for the relevant CKAN version
-echo "https://raw.githubusercontent.com/ckan/ckan/dev-v$CKAN_VERSION/ckanext/datastore/set_permissions.sql"
-wget https://raw.githubusercontent.com/ckan/ckan/dev-v$CKAN_VERSION/ckanext/datastore/set_permissions.sql \
-    -O /tmp/set_permissions.sql 
+if [ $CKANVERSION == 'master' ]
+then
+    wget https://raw.githubusercontent.com/ckan/ckan/dev-v$CKAN_VERSION/ckanext/datastore/set_permissions.sql \
+        -O /tmp/set_permissions.sql
+else
+    wget https://raw.githubusercontent.com/ckan/ckan/$CKAN_VERSION/ckanext/datastore/set_permissions.sql \
+        -O /tmp/set_permissions.sql
+fi
 
 # Replace placeholders
 sed -i \
@@ -14,7 +19,7 @@ sed -i \
     -e "s/{maindb}/$CKAN_POSTGRES_DB/g" \
     -e "s/{writeuser}/$CKAN_DATASTORE_POSTGRES_WRITE_USER/g" \
     -e "s/{readuser}/$CKAN_DATASTORE_POSTGRES_READ_USER/g" \
-    /tmp/set_permissions.sql 
+    /tmp/set_permissions.sql
 
 # Run commands
 psql -U postgres -f /tmp/set_permissions.sql
