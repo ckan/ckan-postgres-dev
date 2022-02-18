@@ -19,7 +19,8 @@ ENV CKAN_DATASTORE_POSTGRES_READ_PWD="pass"
 ENV CKAN_DATASTORE_POSTGRES_WRITE_USER="datastore_write"
 ENV CKAN_DATASTORE_POSTGRES_WRITE_PWD="pass"
 
-ARG CKAN_VERSION="2.9"
-ENV CKAN_VERSION=${CKAN_VERSION}
+ARG CKAN_VERSION="dev-v2.9"
 
 ADD docker-entrypoint-initdb.d /docker-entrypoint-initdb.d
+ADD https://raw.githubusercontent.com/ckan/ckan/$CKAN_VERSION/ckanext/datastore/set_permissions.sql /tmp/set_permissions.sql
+RUN chown postgres:postgres /tmp/set_permissions.sql
