@@ -2,16 +2,6 @@
 
 set -e
 
-# Get the SQL statements template for the relevant CKAN version
-if [ $CKANVERSION == 'master' ]
-then
-    wget https://raw.githubusercontent.com/ckan/ckan/dev-v$CKAN_VERSION/ckanext/datastore/set_permissions.sql \
-        -O /tmp/set_permissions.sql
-else
-    wget https://raw.githubusercontent.com/ckan/ckan/$CKAN_VERSION/ckanext/datastore/set_permissions.sql \
-        -O /tmp/set_permissions.sql
-fi
-
 # Replace placeholders
 sed -i \
     -e "s/{datastoredb}/$CKAN_DATASTORE_POSTGRES_DB/g" \

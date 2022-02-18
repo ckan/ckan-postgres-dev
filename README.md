@@ -11,10 +11,10 @@ The following versions are available as different image tags:
 
 | CKAN Version | Postgres version | Docker tag |
 | --- | --- | --- |
-| 2.6 | 9.6 (alpine) | ckan/ckan-postgres-dev:2.6 |
-| 2.7 | 9.6 (alpine) |ckan/ckan-postgres-dev:2.7 |
-| 2.8 | 11 (alpine) | ckan/ckan-postgres-dev:2.8 |
-| 2.9 | 12 (alpine) | ckan/ckan-postgres-dev:2.9 |
+| dev-v2.6 | 9.6 (alpine) | ckan/ckan-postgres-dev:2.6 |
+| dev-v2.7 | 9.6 (alpine) |ckan/ckan-postgres-dev:2.7 |
+| dev-v2.8 | 11 (alpine) | ckan/ckan-postgres-dev:2.8 |
+| dev-v2.9 | 12 (alpine) | ckan/ckan-postgres-dev:2.9 |
 | master (*) | 12 (alpine) | ckan/ckan-postgres-dev:master |
 
 (*) The `master` image is not automatically updated and might be out of date
@@ -24,10 +24,10 @@ The following versions are available as different image tags:
 
 Use the `make build` command passing the CKAN version and the Postgres image, eg:
 
-    make build CKAN_VERSION=2.9 PG_IMAGE=12-alpine
+    make build CKAN_VERSION=dev-v2.9 PG_IMAGE=12-alpine
     make build CKAN_VERSION=master PG_IMAGE=12-alpine
-    make build CKAN_VERSION=2.8 PG_IMAGE=11-alpine
+    make build CKAN_VERSION=dev-v2.8 PG_IMAGE=11-alpine
 
 The `make check` has the same syntax and can be used to check the generated images:
 
-    make check CKAN_VERSION=2.9 PG_IMAGE=12-alpine
+    make check CKAN_VERSION=dev-v2.9 PG_IMAGE=12-alpine
