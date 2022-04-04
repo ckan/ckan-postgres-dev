@@ -3,7 +3,7 @@
 set -e
 
 # Get the SQL statements template for the relevant CKAN version
-if [ $CKANVERSION == 'master' ]
+if [ $CKAN_VERSION != 'master' ]
 then
     wget https://raw.githubusercontent.com/ckan/ckan/dev-v$CKAN_VERSION/ckanext/datastore/set_permissions.sql \
         -O /tmp/set_permissions.sql
