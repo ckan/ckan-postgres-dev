@@ -1,6 +1,6 @@
-ARG PG_IMAGE=12-alpine
+ARG PG_IMAGE=15-alpine
 FROM postgres:$PG_IMAGE
-MAINTAINER CKAN Tech team
+LABEL maintainer="CKAN Tech team"
 
 # Postgres settings
 ENV POSTGRES_PASSWORD="pass"
@@ -19,7 +19,7 @@ ENV CKAN_DATASTORE_POSTGRES_READ_PWD="pass"
 ENV CKAN_DATASTORE_POSTGRES_WRITE_USER="datastore_write"
 ENV CKAN_DATASTORE_POSTGRES_WRITE_PWD="pass"
 
-ARG CKAN_VERSION="2.9"
+ARG CKAN_VERSION="2.11"
 ENV CKAN_VERSION=${CKAN_VERSION}
 
 ADD docker-entrypoint-initdb.d /docker-entrypoint-initdb.d

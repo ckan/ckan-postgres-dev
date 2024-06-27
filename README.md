@@ -16,7 +16,8 @@ The following versions are available as different image tags:
 | 2.8 | 11 (alpine) | ckan/ckan-postgres-dev:2.8 |
 | 2.9 | 12 (alpine) | ckan/ckan-postgres-dev:2.9 |
 | 2.10 | 12 (alpine) | ckan/ckan-postgres-dev:2.10 |
-| master (*) | 12 (alpine) | ckan/ckan-postgres-dev:master |
+| 2.11 | 15 (alpine) | ckan/ckan-postgres-dev:2.11 |
+| master (*) | 15 (alpine) | ckan/ckan-postgres-dev:master |
 
 (*) The `master` image is not automatically updated and might be out of date
 

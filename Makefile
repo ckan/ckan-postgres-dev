@@ -1,8 +1,8 @@
 .PHONY: all help build
 .ONESHELL:
 SHELL := /bin/bash
-CKAN_VERSION=2.9
-PG_IMAGE=12-alpine
+CKAN_VERSION=2.11
+PG_IMAGE=15-alpine
 IMAGE_NAME=ckan-postgres-dev
 TAG_NAME="ckan/$(IMAGE_NAME):$(CKAN_VERSION)"
 BASE_IMAGE_NAME=ckan-postgres-dev-base
